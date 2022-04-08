@@ -162,9 +162,9 @@ a {
 #gnb .nav_group {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 45px;
-  width: 1130px;
+  width: 1110px;
   padding: 0;
   margin: 0 auto;
 }
