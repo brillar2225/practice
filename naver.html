@@ -13,16 +13,20 @@
           <div id="header_search">
             <a href="http://www.naver.com"><h1>네이버</h1></a>
             <h2 class="blind">검색창</h2>
-            <fieldset>
-              <legend class="blind">검색</legend>
-              <input type="text" />
-              <span id="search_keyboard"></span>
-              <span id="search_history"></span>
-              <button>
-                <span class="blind">검색</span>
-                <span class="ico_search_research"></span>
-              </button>
-            </fieldset>
+            <!-- form 안에 있는 button을 누르면 action page로 이동 -->
+            <form action="https://search.naver.com/search.naver">
+              <fieldset>
+                <legend class="blind">검색</legend>
+                <input type="text" />
+                <span id="search_keyboard"></span>
+                <span id="search_history"></span>
+                <!-- 하지만 type이 button이면 이동 안하고 submit이면 이동 -->
+                <button type="submit">
+                  <span class="blind">검색</span>
+                  <span class="ico_search_research"></span>
+                </button>
+              </fieldset>
+            </form>
           </div>
           <div id="header_top_bar">
             <span>네이버를 시작페이지로</span>
@@ -236,25 +240,52 @@
             </div>
           </div>
           <div class="cast_title">
-            <div class="cast_list">
-              <h2 class="blind">주제별 캐스트</h2>
-              <div class="cast_items">
-                <ul>
-                  <li>뉴스</li>
-                  <li>법률</li>
-                  <li>쇼핑</li>
-                  <li>국제</li>
-                </ul>
+            <div class="cast_group">
+              <span>오늘 읽을만한 글</span>
+              <h2 class="blind">주제별 보기</h2>
+              <div class="cast_list">
+                <!-- 스크린 리더기가 버튼의 역할을 읽을 수 있도록 이름을 적어주기 -->
+                <button class="subject-all">
+                  <span class="blind">전체 주제 열기</span>
+                </button>
+                <div class="subject-list"></div>
+                <button class="subject-prev">
+                  <span class="blind">이전 주제</span>
+                </button>
+                <button class="subject-next">
+                  <span class="blind">다음 주제</span>
+                </button>
               </div>
             </div>
           </div>
           <div class="article_list">
-            <h2>많이 읽은 기사들</h2>
-            <ol>
-              <li>서방, '민간인 학살' 러 추가 제재..."푸틴 두 딸도"</li>
-              <li>젤렌스키, "부차 학살, IS와 똑같아...안보리에서 퇴출해야"</li>
-              <li>윤석열 "균형발전은 필수"...시・도지사 현안 건의</li>
-              <li>"세계 1위 부자는 머스크"...1년만에 재산 82조 증가</li>
+            <div class="article_title">
+              <h2 class="blind">많이 읽은 기사들</h2>
+              <span>많이 읽은 기사들</span>
+            </div>
+            <ol class="article_group">
+              <li class="article_items">
+                <a
+                  href="https://www.yna.co.kr/view/AKR20220406014951071?input=1195m"
+                  >서방, '민간인 학살' 러 추가 제재..."푸틴 두 딸도"</a
+                >
+              </li>
+              <li class="article_items">
+                <a
+                  href="https://www.yna.co.kr/view/AKR20220406000551072?input=1195m"
+                  >젤렌스키, "부차 학살, IS와 똑같아...안보리에서 퇴출해야"</a
+                >
+              </li>
+              <li class="article_items">
+                <a href="https://news.kbs.co.kr/news/view.do?ncd=5433871&ref=A"
+                  >윤석열 "균형발전은 필수"...시・도지사 현안 건의</a
+                >
+              </li>
+              <li class="article_items">
+                <a href="https://view.asiae.co.kr/article/2022040619392265699"
+                  >"세계 1위 부자는 머스크"...1년만에 재산 82조 증가</a
+                >
+              </li>
             </ol>
           </div>
         </div>
