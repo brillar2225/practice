@@ -4,7 +4,42 @@
     <meta charset="utf-8" />
     <title>네이버</title>
     <link rel="shortcut icon" type="image/x-icon" href="imgs/favicon.ico" />
-    <link rel="stylesheet" href="./naver.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      main {
+        position: relative;
+        width: 1150px;
+        padding: 20px 30px;
+        margin: 0 auto;
+        letter-spacing: -0.2px;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0;
+      }
+
+      a {
+        text-decoration: none;
+      }
+    </style>
+    <link rel="stylesheet" href="./header.css" />
+    <link rel="stylesheet" href="./nav.css" />
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="./footer.css" />
   </head>
   <body>
     <header>
@@ -361,10 +396,79 @@
       </div>
     </main>
     <footer>
-      <div id="footer_inner">
-        <div>공지사항</div>
-        <div>Creators</div>
-        <div>회사소개</div>
+      <div id="footer_container">
+        <div class="footer_inner">
+          <div class="notice_area">
+            <div class="notice_box">
+              <h3 class="footer_title">공지사항</h3>
+              <a
+                href="https://www.naver.com/NOTICE/read/1100001014/10000000000030672693"
+                class="notice_msg"
+                >네이버 계정 운영정책 개정에 대한 안내</a
+              >
+            </div>
+          </div>
+          <div class="aside_area">
+            <div class="aside_wrap">
+              <div class="aside_box">
+                <h3 class="footer_title">Creator</h3>
+                <a
+                  href="https://www.navercorp.com/service/creators"
+                  class="details"
+                  >크리에이터</a
+                >
+                <a
+                  href="https://www.navercorp.com/service/business"
+                  class="details"
+                  >스몰비즈니스</a
+                >
+              </div>
+              <div class="aside_box">
+                <h3 class="footer_title">Partners</h3>
+                <a
+                  href="https://campaign.naver.com/smefullcare/online/"
+                  class="details"
+                  >SME 풀케어 시스템</a
+                >
+                <a
+                  href="https://business.naver.com/service.html"
+                  class="details"
+                  >비즈니스 ・ 광고</a
+                >
+                <a
+                  href="https://sell.storefarm.naver.com/#/home/about"
+                  class="details"
+                  >스토어 개설</a
+                >
+                <a href="https://smartplace.naver.com/" class="details"
+                  >지역업체 등록</a
+                >
+                <a
+                  href="https://expert.naver.com/expert/introduction?tab=guide#join"
+                  class="details"
+                  >엑스퍼트 등록</a
+                >
+              </div>
+              <div class="aside_box">
+                <h3 class="footer_title">Developers</h3>
+                <a href="https://developers.naver.com/" class="details"
+                  >네이버 개발자 센터</a
+                >
+                <a
+                  href="https://developers.naver.com/docs/common/openapiguide/#/apilist.md"
+                  class="details"
+                  >오픈 API</a
+                >
+                <a href="https://naver.github.io/" class="details">오픈소스</a>
+                <a href="https://d2.naver.com/" class="details">네이버 D2</a>
+                <a href="http://d2startup.com/" class="details">네이버 D2SF</a>
+                <a href="https://www.naverlabs.com/" class="details"
+                  >네이버 랩스</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   </body>
