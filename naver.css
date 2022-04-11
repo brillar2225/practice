@@ -328,49 +328,114 @@ main {
 }
 
 /* cast-title */
-.cast_title {
+.cast_group {
+  display: block;
   width: 735px;
-  height: 314px;
-  margin-top: 12px;
 }
 
-.cast_title .cast_group {
-  padding: 22px 0 16px;
-  height: 56px;
+.cast_group .cast_title_group {
+  padding-top: 35px;
+  letter-spacing: -0.25px;
 }
 
-.cast_title .cast_group span {
+.cast_group .cast_title_group .cast_title {
+  padding-bottom: 20px;
+}
+
+.cast_group .cast_title_group .title {
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
   line-height: 18px;
+  color: #000;
 }
 
-.cast_title .cast_group .cast_list {
+.cast_group .cast_title_group .cast_list {
+  display: flex;
+  position: relative;
+  right: 40px;
+  align-items: center;
+  width: 111%;
+}
+
+.cast_list .subject_prev {
+  display: inline-block;
+  position: relative;
+  right: -19px;
+  background-color: white;
+  z-index: 10;
+}
+
+.cast_list .subject_prev .prev_btn_icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: url(https://s.pstatic.net/static/www/img/uit/sp_main_dba1af.png) -43px -343px
+    no-repeat;
+  background-size: 456px 434px;
+  vertical-align: top;
+}
+
+.cast_list .subject_next {
+  display: inline-block;
+  position: relative;
+  right: 21px;
+  background-color: white;
+  z-index: 10;
+}
+
+.cast_list .subject_next .next_btn_icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: url(https://s.pstatic.net/static/www/img/uit/sp_main_dba1af.png) -170px -343px
+    no-repeat;
+  background-size: 456px 434px;
+  vertical-align: top;
+}
+
+.cast_group .cast_title_group .subject_list {
+  overflow: hidden;
+}
+
+.subject_list .list_category {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  white-space: nowrap;
+}
+
+.subject_list .list_category .category_item {
   display: inline-block;
   width: 100%;
+  vertical-align: top;
+  z-index: 1;
 }
 
-.subject_all,
-.subject_list,
-.subject_prev,
-.subject_next {
-  float: left;
+.category_item .category_link {
+  display: block;
+  width: 92px;
+  border: 1px solid #dae1e6;
+  font-size: 13px;
+  line-height: 49px;
+  font-weight: 700;
+  text-align: center;
+  color: #000;
 }
 
 /* article-list */
 .article_list {
+  display: block;
   width: 735px;
-  height: 314px;
-  margin-top: 12px;
 }
 
 .article_list .article_title {
-  padding: 22px 0 16px;
-  height: 56px;
+  padding: 35px 0 27px;
+  letter-spacing: -0.25px;
 }
 
 .article_list .article_title span {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   line-height: 18px;
 }
@@ -387,7 +452,7 @@ main {
 }
 
 .article_list .article_group a {
-  font-size: 16px;
+  font-size: 14px;
   text-decoration: underline;
   color: #000;
 }
