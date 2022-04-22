@@ -69,12 +69,8 @@ p {
 }
 
 .landing-text {
+  padding: 24px 0;
   line-height: 1.375;
-}
-
-.landing-text,
-.button-group {
-  padding-top: 24px;
 }
 
 .button-group {
@@ -89,26 +85,19 @@ p {
 
 /* Service */
 .service {
+  padding: 80px 0;
   background-color: #f4f5f7;
 }
 
+.service .col-12:last-child {
+  margin-top: 40px;
+}
+
 .service-title {
-  justify-content: center;
-  align-items: center;
-  font-weight: 700;
   font-size: 22px;
   line-height: 1.3636363636;
   letter-spacing: -0.04em;
   color: #2b292d;
-}
-
-.service .col-12:first-child {
-  padding-top: 80px;
-}
-
-.service .col-12:last-child {
-  padding-top: 40px;
-  padding-bottom: 80px;
 }
 
 .service-text {
@@ -221,7 +210,7 @@ p {
   margin: 32px 0 48px;
 }
 
-.curriculum-img {
+.curriculum-img span {
   display: none;
 }
 
@@ -235,6 +224,13 @@ p {
   background-color: #f2f8fa;
 }
 
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .banner-header {
   display: flex;
   flex-direction: column;
@@ -243,7 +239,8 @@ p {
   text-align: center;
 }
 
-.banner-img {
+.banner-img span {
+  display: block;
   width: 191.48px;
   height: 190px;
   margin-top: 65px;
@@ -269,7 +266,7 @@ p {
   justify-content: center;
   align-items: center;
   width: 290px;
-  padding: 24px 0 40px;
+  padding-top: 24px;
 }
 
 .email-input,
@@ -300,7 +297,7 @@ p {
 }
 
 .misc {
-  padding-top: 8px;
+  padding: 8px 0 40px;
   font-size: 13px;
   line-height: 1.5384615385;
   color: #7b7b7e;
@@ -358,6 +355,217 @@ p {
   p {
     font-size: 22px;
     line-height: 1.4545454545;
+  }
+
+  /* landing */
+  .landing-title {
+    font-size: 70px;
+    line-height: 1.0285714286;
+  }
+
+  .landing-text {
+    padding: 32px 0;
+    line-height: 1.4545454545;
+  }
+
+  .button-group .fill-button:first-child {
+    margin-right: 16px;
+  }
+
+  /* service */
+  .service-title {
+    font-size: 26px;
+    line-height: 1.3076923077;
+  }
+
+  .service .col-12:first-child {
+    padding-right: 40px;
+  }
+
+  .service .col-12:last-child {
+    margin-top: 0px;
+    padding-left: 40px;
+  }
+
+  /* program */
+  .program {
+    padding-bottom: 96px;
+  }
+
+  .program-header {
+    text-align: center;
+  }
+
+  .category {
+    font-size: 22px;
+    line-height: 1.0909090909;
+  }
+
+  .program-title {
+    padding-top: 16px;
+    font-size: 56px;
+    line-height: 1;
+  }
+
+  .program-text {
+    width: 770px;
+    padding-top: 32px;
+    margin: 0 auto;
+    font-size: 22px;
+    line-height: 1.4545454545;
+  }
+
+  .program-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 72px;
+  }
+
+  .card-item {
+    height: 299px;
+    border-radius: 8px;
+    margin-top: 0;
+    margin-right: 30px;
+  }
+
+  .card-item h3 {
+    padding-top: 24px;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  .card-item:last-child {
+    margin-right: 0;
+  }
+
+  /* curriculum */
+  .curriculum {
+    padding-bottom: 96px;
+  }
+
+  .curriculum-header {
+    display: flex;
+    padding-bottom: 36px;
+  }
+
+  .curriculum-title {
+    padding-top: 16px;
+    font-size: 56px;
+    line-height: 1;
+  }
+
+  .curriculum-text {
+    padding-top: 32px;
+    font-size: 22px;
+    line-height: 1.4545454545;
+  }
+
+  .curriculum-header .fill-button {
+    margin: 72px 0 66px;
+  }
+
+  .curriculum-img {
+    padding-left: 43px;
+  }
+
+  .curriculum-img span {
+    display: block;
+    width: 425px;
+    height: 426px;
+    background: url(./assets/img-curriculum.png) center center no-repeat;
+    background-size: cover;
+  }
+
+  .curriculum-details {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .curriculum-details .items {
+    width: 450px;
+    height: 78px;
+    font-size: 18px;
+    line-height: 1.4444444444;
+  }
+
+  /* banner */
+  .banner-content {
+    flex-direction: row;
+    padding: 88px 255px;
+  }
+
+  .banner-img {
+    padding-right: 80px;
+  }
+
+  .banner-img span {
+    display: block;
+    width: 287px;
+    height: 285px;
+    margin-top: 0;
+  }
+
+  .banner-header {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .banner-title {
+    padding-top: 24px;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1;
+  }
+
+  .banner-text {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.4545454545;
+  }
+
+  .email-form {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .email-input {
+    width: 362px;
+    height: 56px;
+    margin-right: 8px;
+    padding: 16px 0 16px 16px;
+  }
+
+  .start-button {
+    width: 160px;
+    height: 56px;
+    margin: 0;
+    padding: 15px 0;
+    font-size: 18px;
+    line-height: 1.3333333333;
+  }
+
+  .footer ul {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .footer li {
+    margin-top: 0;
+    margin-right: 16px;
+  }
+
+  .footer li:last-child {
+    margin-right: 0;
+  }
+
+  /* Utilites */
+  .fill-button {
+    width: 160px;
+    font-size: 18px;
+    line-height: 1.5555555556;
   }
 }
 
