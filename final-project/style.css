@@ -342,11 +342,16 @@ p {
   letter-spacing: -0.05em;
   color: #ffffff;
   background-color: #3040c4;
+  transition: opacity 300ms ease-in-out;
 }
 
 .fill-button.more {
   color: #3040c4;
   background-color: #ffffff;
+}
+
+.fill-button:hover {
+  opacity: 0.7;
 }
 
 /* >= 768px (Desktop) */
@@ -544,6 +549,11 @@ p {
     padding: 15px 0;
     font-size: 18px;
     line-height: 1.3333333333;
+    transition: opacity 300ms ease-in-out;
+  }
+
+  .start-button:hover {
+    opacity: 0.8;
   }
 
   .footer ul {
