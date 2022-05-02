@@ -45,7 +45,7 @@ if (savedUserName === null) {
 }
 
 // button that remove username from localStorage
-function removeBtn(USERNAME_KEY) {
+function removeBtn() {
   localStorage.removeItem(USERNAME_KEY);
   // refresh page with logout
   window.location.reload();
