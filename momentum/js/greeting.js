@@ -33,6 +33,13 @@ function paintGreetings(username) {
   handleGreetingContent();
 }
 
+// button that remove username from localStorage
+function removeBtn() {
+  localStorage.removeItem(USERNAME_KEY);
+  // refresh page with logout
+  window.location.reload();
+}
+
 // constant that bring username stored in localStorage
 const savedUserName = localStorage.getItem(USERNAME_KEY);
 
@@ -41,12 +48,6 @@ if (savedUserName === null) {
   loginForm.addEventListener('submit', onSubmit);
 } else {
   paintGreetings(savedUserName);
-  logoutInput.addEventListener('click', removeBtn);
 }
 
-// button that remove username from localStorage
-function removeBtn() {
-  localStorage.removeItem(USERNAME_KEY);
-  // refresh page with logout
-  window.location.reload();
-}
+logoutInput.addEventListener('click', removeBtn);
