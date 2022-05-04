@@ -6,27 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
     <title>Momentum App</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <form id="login-form" class="hidden">
-      <!-- form은 enter를 누르거나 submit button을 누른 경우 더이상 input할 것이 없다면 자동으로 submit 해 페이지를 새로고침 함-->
-      <input
-        maxlength="15"
-        type="text"
-        placeholder="What is your name?"
-        required
-      />
-      <input type="submit" value="Log In" />
-    </form>
-    <div id="clock-content">
-      <h4 class="date"></h4>
-      <h2 class="time"></h2>
-    </div>
-    <div id="greeting-content" class="hidden">
-      <h1 id="greeting"></h1>
-      <input type="button" value="Log Out" class="logoutInput" />
-    </div>
+    <section>
+      <h1 class="sr-only">Date and Time</h1>
+      <div id="clock-content">
+        <h4 class="date"></h4>
+        <h2 class="time"></h2>
+      </div>
+    </section>
+    <section>
+      <form id="login-form" class="hidden">
+        <!-- form은 enter를 누르거나 submit button을 누른 경우 더이상 input할 것이 없다면 자동으로 submit 해 페이지를 새로고침 함-->
+        <input
+          maxlength="15"
+          type="text"
+          placeholder="What is your name?"
+          required
+        />
+        <input type="submit" value="Log In" />
+      </form>
+      <div id="greeting-content" class="hidden">
+        <h1 id="greeting"></h1>
+        <input type="button" value="Log Out" class="logoutInput" />
+      </div>
+    </section>
+    <section>
+      <h1 class="sr-only">Today's quote and author</h1>
+      <div id="quotes-content">
+        <span class="quote"></span>
+        <span class="author"></span>
+      </div>
+    </section>
     <script src="./js/greeting.js"></script>
     <script src="./js/clock.js"></script>
+    <script src="./js/quotes.js"></script>
+    <script src="./js/background.js"></script>
   </body>
 </html>

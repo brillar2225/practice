@@ -1,3 +1,31 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Lato', sans-serif;
+  background: center center no-repeat;
+  background-size: cover;
+}
+
+input,
+button {
+  font-family: 'Lato', sans-serif;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 .hidden {
   display: none;
 }
