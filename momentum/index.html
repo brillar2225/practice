@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -42,9 +42,25 @@
         <span class="author"></span>
       </div>
     </section>
+    <section>
+      <div id="todo-content">
+        <form id="todo-input">
+          <input
+            type="text"
+            id="input-box"
+            placeholder="Write your To Do"
+            autofocus
+            required
+          />
+          <input type="submit" value="ADD" id="input-btn" />
+        </form>
+        <ul id="todo-list"></ul>
+      </div>
+    </section>
     <script src="./js/greeting.js"></script>
     <script src="./js/clock.js"></script>
     <script src="./js/quotes.js"></script>
     <script src="./js/background.js"></script>
+    <script src="./js/todo.js"></script>
   </body>
 </html>
