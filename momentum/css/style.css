@@ -1,18 +1,26 @@
+/* Entire Setting */
 * {
   box-sizing: border-box;
   margin: 0;
 }
 
 body {
-  height: 100vh;
   font-family: 'Lato', sans-serif;
-  background: center center no-repeat;
-  background-size: cover;
 }
 
 input,
 button {
+  border: none;
   font-family: 'Lato', sans-serif;
+  font-size: 18px;
+}
+
+button:focus,
+button:active,
+input:focus,
+input:active {
+  outline: none;
+  box-shadow: none;
 }
 
 li {
@@ -32,4 +40,202 @@ li {
 
 .hidden {
   display: none;
+}
+
+/* background */
+.background {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: 100% 100% no-repeat;
+  background-size: cover;
+}
+
+/* clock */
+.clock-center {
+  text-align: center;
+}
+
+.date {
+  font-size: 45px;
+  line-height: 1.5;
+  letter-spacing: -0.03em;
+  text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000;
+  color: #ffffff;
+}
+
+.time {
+  font-size: 60px;
+  line-height: 1.2765957447;
+  letter-spacing: -0.05em;
+  text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000;
+  color: #ffffff;
+}
+
+/* greeting */
+#login-form {
+  width: 500px;
+  height: 100%;
+}
+
+#login-form input:first-child {
+  width: 79%;
+  padding: 13px 17px;
+  margin-right: 6px;
+}
+
+#login-form input:last-child {
+  width: 19%;
+  padding: 13px 3px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+#greeting-content {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  width: 285px;
+}
+
+.greeting-title {
+  display: inline-block;
+  height: 40px;
+  margin-right: 16px;
+  vertical-align: middle;
+  font-size: 34px;
+  line-height: 1.1333333333;
+  letter-spacing: -0.03em;
+}
+
+.logout-input {
+  display: inline-block;
+  height: 40px;
+  border-radius: 2px;
+  background-color: #f2f8fa;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: opacity 300ms ease-in-out;
+}
+
+.logout-input:hover {
+  opacity: 0.8;
+}
+
+/* quotes */
+.quotes-section {
+  position: relative;
+  top: 560px;
+}
+
+.quotes-bottom {
+  font-weight: 300;
+  text-align: center;
+  color: #f4f5f7;
+}
+
+.quote {
+  display: block;
+  font-size: 23px;
+  line-height: 1.0952380952;
+  letter-spacing: -0.02em;
+}
+
+.author {
+  display: block;
+  margin-top: 10px;
+  font-size: 18px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* to-do list */
+#todo-content {
+  height: auto;
+}
+
+#todo-input {
+  width: 550px;
+}
+
+.add-input {
+  width: 79%;
+  height: auto;
+  padding: 15px 13px;
+  margin-right: 6px;
+  background-color: #f2f8fa;
+}
+
+.add-btn {
+  width: 19%;
+  padding: 15px 13px;
+  border-radius: 2px;
+  background-color: #f2f8fa;
+  cursor: pointer;
+  transition: opacity 300ms ease-in-out;
+}
+
+.add-btn:hover {
+  opacity: 0.8;
+}
+
+.add-btn::placeholder {
+  color: #7b7b7e;
+}
+
+.lists {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  margin-left: 15px;
+}
+
+.lists li {
+  height: auto;
+  padding-top: 10px;
+  color: #2b292d;
+}
+
+.lists input {
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.lists span {
+  padding: 0 13px;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.lists button {
+  background: none;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: opacity 300ms ease-in;
+}
+
+.lists button:hover {
+  opacity: 0.9;
+}
+
+/* weather */
+.weather-section {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.weather-container {
+  font-size: 25px;
+  line-height: 1.1904761905;
+  letter-spacing: -0.02em;
+  font-weight: 700;
 }

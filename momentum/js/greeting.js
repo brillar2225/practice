@@ -2,7 +2,7 @@ const loginForm = document.querySelector('#login-form');
 const loginInput = document.querySelector('#login-form input');
 const greetingContent = document.querySelector('#greeting-content');
 const greeting = document.querySelector('#greeting');
-const logoutInput = document.querySelector('.logoutInput');
+const logoutInput = document.querySelector('.logout-input');
 
 // 일반적으로 string만 포함된 변수는 대문자로 표기함
 // 그리고 loginForm이나 loginInput처럼 중요한 정보를 담은 것이 아니기 때문에 대문자로 표기

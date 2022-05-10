@@ -14,4 +14,5 @@ const randomImages = imgaes[randomIndexImages];
 
 const url = `url(img/${randomImages})`;
 
-document.body.style.backgroundImage = url;
+const background = document.querySelector('.background');
+background.style.backgroundImage = url;

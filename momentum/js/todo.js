@@ -24,17 +24,21 @@ function deleteTodo(event) {
 function paintTodo(inputValue) {
   const itemList = document.createElement('li');
   itemList.id = inputValue.id;
-  const checkBox = document.createElement('input');
-  checkBox.type = 'checkbox';
+  const checkbox = document.createElement('input');
+  checkbox.type = 'checkbox';
+  checkbox.addEventListener('change', function () {
+    itemList.style.textDecoration = checkbox.checked ? 'line-through' : 'none';
+    itemList.style.color = checkbox.checked ? '#d50000' : '#2b292d';
+  });
 
   const item = document.createElement('span');
   item.innerHTML = inputValue.text;
 
   const deleteBtn = document.createElement('button');
-  deleteBtn.innerHTML = '❎';
+  deleteBtn.innerHTML = '❌';
   deleteBtn.addEventListener('click', deleteTodo);
 
-  itemList.appendChild(checkBox);
+  itemList.appendChild(checkbox);
   itemList.appendChild(item);
   itemList.appendChild(deleteBtn);
   todoList.appendChild(itemList);
@@ -42,17 +46,24 @@ function paintTodo(inputValue) {
 
 // Get input value
 function getTodoInput(event) {
-  event.preventDefault();
-  const inputValue = inputBox.value;
-  inputBox.value = '';
-  const todoItemObj = {
-    text: inputValue,
-    id: Date.now(),
-  };
-  todoItems.push(todoItemObj);
-  // Call paintTodo and saveTodo function
-  paintTodo(todoItemObj);
-  saveTodos();
+  const isExist = localStorage.getItem('username');
+  if (isExist !== null) {
+    event.preventDefault();
+    const inputValue = inputBox.value;
+    inputBox.value = '';
+    const todoItemObj = {
+      text: inputValue,
+      id: Date.now(),
+    };
+    todoItems.push(todoItemObj);
+    // Call paintTodo and saveTodo function
+    paintTodo(todoItemObj);
+    saveTodos();
+  } else {
+    event.preventDefault();
+    alert('Please login first');
+    inputBox.value = '';
+  }
 }
 
 todoInput.addEventListener('submit', getTodoInput);
@@ -65,3 +76,5 @@ if (savedTodos !== null) {
   todoItems = parsedTodos;
   parsedTodos.forEach(paintTodo);
 }
+
+// put line-through when checkbox is clicked

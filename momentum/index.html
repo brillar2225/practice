@@ -12,58 +12,65 @@
     />
   </head>
   <body>
-    <section>
-      <h1 class="sr-only">Date and Time</h1>
-      <div id="clock-content">
-        <h4 class="date"></h4>
-        <h2 class="time"></h2>
-      </div>
-    </section>
-    <section>
-      <form id="login-form" class="hidden">
-        <!-- form은 enter를 누르거나 submit button을 누른 경우 더이상 input할 것이 없다면 자동으로 submit 해 페이지를 새로고침 함-->
-        <input
-          maxlength="15"
-          type="text"
-          placeholder="What is your name?"
-          required
-        />
-        <input type="submit" value="Log In" />
-      </form>
-      <div id="greeting-content" class="hidden">
-        <h1 id="greeting"></h1>
-        <input type="button" value="Log Out" class="logoutInput" />
-      </div>
-    </section>
-    <section>
-      <h1 class="sr-only">Today's quote and author</h1>
-      <div id="quotes-content">
-        <span class="quote"></span>
-        <span class="author"></span>
-      </div>
-    </section>
-    <section>
-      <div id="todo-content">
-        <form id="todo-input">
+    <div class="background">
+      <section class="clock-section">
+        <h1 class="sr-only">Date and Time</h1>
+        <div id="clock-content" class="clock-center">
+          <h4 class="date"></h4>
+          <h2 class="time"></h2>
+        </div>
+      </section>
+      <section class="greeting-section">
+        <h1 class="sr-only">Login and Logout Form</h1>
+        <form id="login-form" class="hidden">
+          <!-- form은 enter를 누르거나 submit button을 누른 경우 더이상 input할 것이 없다면 자동으로 submit 해 페이지를 새로고침 함-->
           <input
+            maxlength="15"
             type="text"
-            id="input-box"
-            placeholder="Write your To Do"
-            autofocus
+            placeholder="What is your name?"
             required
           />
-          <input type="submit" value="ADD" id="input-btn" />
+          <input type="submit" value="Log In" />
         </form>
-        <ul id="todo-list"></ul>
-      </div>
-      <div id="weather-container">
-        <span id="city"></span>
-        <span id="weather"></span>
-        <span id="temp"></span>
-      </div>
-    </section>
-    <script src="./js/greeting.js"></script>
+        <div id="greeting-content" class="hidden">
+          <h1 id="greeting" class="greeting-title"></h1>
+          <input type="button" value="Log Out" class="logout-input" />
+        </div>
+      </section>
+      <section class="quotes-section">
+        <h1 class="sr-only">Today's quote and author</h1>
+        <div id="quotes-content" class="quotes-bottom">
+          <span class="quote"></span>
+          <span class="author"></span>
+        </div>
+      </section>
+      <section class="todo-section">
+        <h1 class="sr-only">Todo List</h1>
+        <div id="todo-content">
+          <form id="todo-input">
+            <input
+              type="text"
+              id="input-box"
+              class="add-input"
+              placeholder="Write your To Do"
+              autofocus
+              required
+            />
+            <input type="submit" value="ADD" id="input-btn" class="add-btn" />
+          </form>
+          <ul id="todo-list" class="lists"></ul>
+        </div>
+      </section>
+      <section class="weather-section">
+        <div id="weather-container">
+          <span id="city"></span>
+          <span id="weather"></span>
+          <span id="temp"></span>
+        </div>
+      </section>
+    </div>
     <script src="./js/clock.js"></script>
+    <script src="./js/greeting.js"></script>
     <script src="./js/quotes.js"></script>
     <script src="./js/background.js"></script>
     <script src="./js/todo.js"></script>
