@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  div 
+    p=video.description
+    small=video.createdAt
+  a(href=`${video.id}/edit`) Edit
+  br
+  a(href=`${video.id}/delete`) Delete 

@@ -1,0 +1,10 @@
+extends layout 
+
+block content 
+  p=errorMessage
+  form(method="POST")
+    input(name='name', type="text", placeholder='Edit Name', required, value=loggedInUser.name)
+    input(name='email', type="email", placeholder='Edit Email', required, value=loggedInUser.email)
+    input(name='username', type="text", placeholder='Edit Username', required, value=loggedInUser.username)
+    input(name='location', type="text", placeholder='Edit Location', required, value=loggedInUser.location)
+    input(type="submit", value="Update Profile")
