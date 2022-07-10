@@ -230,15 +230,18 @@ export const postEdit = async (req, res) => {
   // const id = req.session.user.id;
   // const {name, email, username, location} = req.body;
   // ES6
+
+  // Get request datas
   const {
     session: {
       user: { _id, email: pastEmail, username: pastUsername, socialOnly },
     },
     body: { name, email, username, location },
   } = req;
-  // Do not allow to change email or username if they are existed in DB
   const pageTitle = 'Edit Profile';
+  // Change email
   if (email !== pastEmail) {
+    // Check if there is same email in mongoDB
     const checkEmail = await User.exists({ email });
     if (checkEmail) {
       return res.status(400).render('edit-profile', {
@@ -247,7 +250,9 @@ export const postEdit = async (req, res) => {
       });
     }
   }
+  // Check username
   if (username !== pastUsername) {
+    // Check if there is same username in mongoDB
     const checkUsername = await User.exists({ username });
     if (checkUsername) {
       return res.status(400).render('edit-profile', {
@@ -256,6 +261,7 @@ export const postEdit = async (req, res) => {
       });
     }
   }
+  // Can't change email whose logged in using social media
   const findSocialOnly = await User.findOne({ socialOnly: true });
   if (findSocialOnly && email !== pastEmail) {
     return res.status(400).render('edit-profile', {
