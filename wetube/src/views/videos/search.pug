@@ -2,9 +2,12 @@ extends ../layout
 include ../mixins/video
 
 block content 
+  h1 #{pageTitle}: #{keyword ? keyword : year || rating}
   form(method='GET')
-    input(name='keyword', type='text', placeholder='Search by title')
+    input(type="text", name="keyword", placeholder='Search by keyword')
+    input(type="number", name="year", placeholder='Search by year')
+    //- input(type="number", name="rating", max='5' placeholder='Search by rating')
     input(type="submit", value="Search Now")
   div 
-    each item in videos 
+    each item in keywords 
       +video(item)

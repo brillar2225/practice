@@ -77,14 +77,53 @@ export const postUpload = async (req, res) => {
 };
 
 export const search = async (req, res) => {
-  const { keyword } = req.query;
-  let videos = [];
+  const {
+    query: { keyword, year, rating },
+  } = req;
+  let keywords = [];
+  // search movies by keyword including title and summary
   if (keyword) {
-    videos = await Video.find({
-      title: {
-        $regex: new RegExp(keyword, 'ig'),
+    keywords = await Video.find({
+      $or: [
+        {
+          title: {
+            $regex: new RegExp(keyword, 'ig'),
+          },
+        },
+        {
+          description: {
+            $regex: new RegExp(keyword, 'ig'),
+          },
+        },
+      ],
+    });
+  } else if (year || rating) {
+    // search movies by year or rating
+    keywords = await Video.find({
+      createdAt: {
+        $gte: year,
       },
+      // $or: [
+      //   {
+      //     createdAt: {
+      //       $gte: year,
+      //     },
+      //   },
+      //   {
+      //     meta: {
+      //       rating: {
+      //         $gte: rating,
+      //       },
+      //     },
+      //   },
+      // ],
     });
   }
-  return res.render('videos/search', { pageTitle: 'Search Video', videos });
+  return res.render('videos/search', {
+    pageTitle: 'Search',
+    keywords,
+    keyword,
+    year,
+    rating,
+  });
 };
