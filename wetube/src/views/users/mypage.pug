@@ -1,4 +1,4 @@
-extends layout 
+extends ../layout 
 
 block content 
   p=errorMessage
@@ -8,3 +8,6 @@ block content
     input(name='username', type="text", placeholder='Edit Username', required, value=loggedInUser.username)
     input(name='location', type="text", placeholder='Edit Location', required, value=loggedInUser.location)
     input(type="submit", value="Update Profile")
+  if !loggedInUser.socialOnly
+    div 
+      a(href="password") Change Password 

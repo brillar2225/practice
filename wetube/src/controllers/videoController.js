@@ -8,22 +8,31 @@ export const homepage = async (req, res) => {
     return res.render('server-error');
   }
 };
+
 export const watch = async (req, res) => {
   const { id } = req.params;
   const video = await Video.findById(id);
   if (!video) {
     return res.status(400).render('404', { pageTitle: 'Video not found' });
   }
-  return res.render('watch', { pageTitle: `Watch ${video.title}`, video });
+  return res.render('videos/watch', {
+    pageTitle: `Watch ${video.title}`,
+    video,
+  });
 };
+
 export const getEdit = async (req, res) => {
   const { id } = req.params;
   const video = await Video.findById(id);
   if (!video) {
     return res.status(404).render('404', { pageTitle: 'Video not found' });
   }
-  return res.render('edit', { pageTitle: `Edit: ${video.title}`, video });
+  return res.render('videos/edit', {
+    pageTitle: `Edit: ${video.title}`,
+    video,
+  });
 };
+
 export const postEdit = async (req, res) => {
   const { id } = req.params;
   const { title, description, hashtags } = req.body;
@@ -38,14 +47,17 @@ export const postEdit = async (req, res) => {
   });
   return res.redirect(`/videos/${id}`);
 };
+
 export const deleteVideo = async (req, res) => {
   const { id } = req.params;
   await Video.findByIdAndDelete(id);
   return res.redirect('/');
 };
+
 export const getUpload = (req, res) => {
-  return res.render('upload', { pageTitle: 'Upload Video' });
+  return res.render('videos/upload', { pageTitle: 'Upload Video' });
 };
+
 export const postUpload = async (req, res) => {
   const { title, description, hashtags } = req.body;
   try {
@@ -57,12 +69,13 @@ export const postUpload = async (req, res) => {
     return res.redirect('/');
   } catch (error) {
     console.log(error);
-    return res.status(404).render('upload', {
+    return res.status(404).render('videos/upload', {
       pageTitle: 'Upload Video',
       errorMessage: error._message,
     });
   }
 };
+
 export const search = async (req, res) => {
   const { keyword } = req.query;
   let videos = [];
@@ -73,5 +86,5 @@ export const search = async (req, res) => {
       },
     });
   }
-  return res.render('search', { pageTitle: 'Search Video', videos });
+  return res.render('videos/search', { pageTitle: 'Search Video', videos });
 };

@@ -2,14 +2,15 @@ import User from '../models/User';
 import fetch from 'node-fetch';
 import bcrypt from 'bcrypt';
 
-export const getJoin = (req, res) => res.render('join', { pageTitle: 'Join' });
+export const getJoin = (req, res) =>
+  res.render('users/join', { pageTitle: 'Join' });
 
 export const postJoin = async (req, res) => {
   // Get user's infomations user input
   const { name, email, username, password, password2, location } = req.body;
   const pageTitle = 'join';
   if (password !== password2) {
-    return res.status(400).render('join', {
+    return res.status(400).render('users/join', {
       pageTitle,
       errorMessage: 'Password confirmation does not match.',
     });
@@ -17,7 +18,7 @@ export const postJoin = async (req, res) => {
   // Check if username and email inputted is existing in mongoDB as well
   const isExist = await User.exists({ $or: [{ username }, { email }] });
   if (isExist) {
-    return res.status(400).render('join', {
+    return res.status(400).render('users/join', {
       pageTitle,
       errorMessage: 'This username/email is already taken.',
     });
@@ -41,7 +42,7 @@ export const postJoin = async (req, res) => {
 };
 
 export const getLogin = (req, res) =>
-  res.render('login', { pageTitle: 'Login' });
+  res.render('users/login', { pageTitle: 'Login' });
 
 export const postLogin = async (req, res) => {
   // Get username and password user input
@@ -50,7 +51,7 @@ export const postLogin = async (req, res) => {
   // Check username
   const user = await User.findOne({ username, socialOnly: false });
   if (!user) {
-    return res.status(400).render('login', {
+    return res.status(400).render('users/login', {
       pageTitle,
       errorMessage: 'An account with this username deos not exist.',
     });
@@ -58,7 +59,7 @@ export const postLogin = async (req, res) => {
   // Check password
   const comparision = await bcrypt.compare(password, user.password);
   if (!comparision) {
-    return res.status(400).render('login', {
+    return res.status(400).render('users/login', {
       pageTitle,
       errorMessage: 'Wrong Password.',
     });
@@ -223,7 +224,7 @@ export const finishKakaoLogin = async (req, res) => {
 };
 
 export const getEdit = (req, res) => {
-  return res.render('edit-profile', { pageTitle: 'Edit Profile' });
+  return res.render('users/mypage', { pageTitle: 'Edit Profile' });
 };
 
 export const postEdit = async (req, res) => {
@@ -234,7 +235,7 @@ export const postEdit = async (req, res) => {
   // Get request datas
   const {
     session: {
-      user: { _id, email: pastEmail, username: pastUsername, socialOnly },
+      user: { _id, email: pastEmail, username: pastUsername },
     },
     body: { name, email, username, location },
   } = req;
@@ -244,7 +245,7 @@ export const postEdit = async (req, res) => {
     // Check if there is same email in mongoDB
     const checkEmail = await User.exists({ email });
     if (checkEmail) {
-      return res.status(400).render('edit-profile', {
+      return res.status(400).render('users/mypage', {
         pageTitle,
         errorMessage: 'This email is already taken',
       });
@@ -255,7 +256,7 @@ export const postEdit = async (req, res) => {
     // Check if there is same username in mongoDB
     const checkUsername = await User.exists({ username });
     if (checkUsername) {
-      return res.status(400).render('edit-profile', {
+      return res.status(400).render('users/mypage', {
         pageTitle,
         errorMessage: 'This username is already taken',
       });
@@ -264,7 +265,7 @@ export const postEdit = async (req, res) => {
   // Can't change email whose logged in using social media
   const findSocialOnly = await User.findOne({ socialOnly: true });
   if (findSocialOnly && email !== pastEmail) {
-    return res.status(400).render('edit-profile', {
+    return res.status(400).render('users/mypage', {
       pageTitle,
       errorMessage: 'This ID using social media can not change the email.',
     });
@@ -280,7 +281,39 @@ export const postEdit = async (req, res) => {
     { new: true }
   );
   req.session.user = updateUser;
-  return res.redirect('/users/edit');
+  return res.redirect('/mypage');
+};
+
+export const getPassword = (req, res) => {
+  return res.render('users/password', { pageTitle: 'Change Password' });
+};
+
+export const postPassword = async (req, res) => {
+  const {
+    session: {
+      user: { _id },
+    },
+    body: { current, changed, confirm },
+  } = req;
+  const user = await User.findById(_id);
+  const comparation = await bcrypt.compare(current, user.password);
+  if (!comparation) {
+    return res.status(400).render('users/password', {
+      pageTitle: 'Change Password',
+      errorMessage: 'The current password is incorrect',
+    });
+  }
+  if (changed !== confirm) {
+    return res.status(400).render('users/password', {
+      pageTitle: 'Change Password',
+      errorMessage: 'The new password deos not match with the confirmation',
+    });
+  }
+  user.password = changed;
+  await user.save();
+  req.session.destroy();
+  // send notification
+  return res.redirect('/users/logout');
 };
 
 export const logout = (req, res) => {
