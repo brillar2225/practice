@@ -235,9 +235,10 @@ export const postEdit = async (req, res) => {
   // Get request datas
   const {
     session: {
-      user: { _id, email: pastEmail, username: pastUsername },
+      user: { _id, avatarUrl, email: pastEmail, username: pastUsername },
     },
     body: { name, email, username, location },
+    file,
   } = req;
   const pageTitle = 'Edit Profile';
   // Change email
@@ -273,6 +274,8 @@ export const postEdit = async (req, res) => {
   const updateUser = await User.findByIdAndUpdate(
     _id,
     {
+      // ⚠️ NEVER SAVE THE IMAGE FILE ON THE DATABASE, SAVE PATH OF THAT FILE ⚠️
+      avatarUrl: file ? file.path : avatarUrl, // when avatarUrl has not changed, it will be error since file.path is going to be undefined.
       name,
       email,
       username,
@@ -281,7 +284,7 @@ export const postEdit = async (req, res) => {
     { new: true }
   );
   req.session.user = updateUser;
-  return res.redirect('/mypage');
+  return res.redirect('/users/mypage');
 };
 
 export const getPassword = (req, res) => {

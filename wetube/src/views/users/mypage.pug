@@ -1,13 +1,16 @@
 extends ../layout 
 
 block content 
+  img(src=`/${loggedInUser.avatarUrl}`, alt="profile image", width='100px', height='100px')
   p=errorMessage
-  form(method="POST")
+  form(method="POST" enctype='multipart/form-data')
+    label(for="avatar") Avatar
+    input(type="file", id='avatar', name="avatar", accept='image/*')
     input(name='name', type="text", placeholder='Edit Name', required, value=loggedInUser.name)
     input(name='email', type="email", placeholder='Edit Email', required, value=loggedInUser.email)
     input(name='username', type="text", placeholder='Edit Username', required, value=loggedInUser.username)
     input(name='location', type="text", placeholder='Edit Location', required, value=loggedInUser.location)
     input(type="submit", value="Update Profile")
-  if !loggedInUser.socialOnly
-    div 
-      a(href="password") Change Password 
+    if !loggedInUser.socialOnly
+      div 
+        a(href="password") Change Password 
