@@ -12,6 +12,7 @@ import {
   see,
 } from '../controllers/userController';
 import {
+  multerAvatar,
   multerMiddleware,
   protectMiddleware,
   publicOnlyMiddleware,
@@ -28,7 +29,7 @@ userRouter
   .route('/mypage')
   .all(protectMiddleware)
   .get(getEdit)
-  .post(multerMiddleware.single('avatar'), postEdit);
+  .post(multerAvatar.single('avatar'), postEdit);
 userRouter.route('/password').get(getPassword).post(postPassword);
 userRouter.get('/:id', see);
 

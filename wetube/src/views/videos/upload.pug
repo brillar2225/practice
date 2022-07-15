@@ -3,7 +3,9 @@ extends ../layout
 block content 
   if errorMessage 
     span=errorMessage
-  form(method='post')
+  form(method='post', enctype='multipart/form-data')
+    label(for="video") Video File
+    input(type="file", name="video", id='video', accept='video/*', required)
     input(name='title', placeholder='Title', required, type='text', maxlength='50')
     input(name='description', placeholder='Description', required, type='text', minlenth='20')
     input(name='hashtags', placeholder='Hashtags, separated by comma', required, type='text')
