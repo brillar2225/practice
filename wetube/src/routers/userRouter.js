@@ -13,7 +13,6 @@ import {
 } from '../controllers/userController';
 import {
   multerAvatar,
-  multerMiddleware,
   protectMiddleware,
   publicOnlyMiddleware,
 } from '../middlewares';
