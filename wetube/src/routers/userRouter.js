@@ -9,7 +9,7 @@ import {
   postEdit,
   getPassword,
   postPassword,
-  see,
+  profile,
 } from '../controllers/userController';
 import {
   multerAvatar,
@@ -30,6 +30,6 @@ userRouter
   .get(getEdit)
   .post(multerAvatar.single('avatar'), postEdit);
 userRouter.route('/password').get(getPassword).post(postPassword);
-userRouter.get('/:id', see);
+userRouter.get('/:id', profile);
 
 export default userRouter;

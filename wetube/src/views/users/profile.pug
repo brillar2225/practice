@@ -2,7 +2,7 @@ extends ../layout
 include ../mixins/video
 
 block content 
-  each item in videos
+  each item in user.videos
     +video(item)
   else
     h3 Sorry. Nothing Found.

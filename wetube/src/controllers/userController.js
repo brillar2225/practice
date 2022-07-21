@@ -313,6 +313,9 @@ export const postPassword = async (req, res) => {
       errorMessage: 'The new password deos not match with the confirmation',
     });
   }
+  // await User.findByIdAndUpdate(_id, {
+  //   password: changed,
+  // });
   user.password = changed;
   await user.save();
   req.session.destroy();
@@ -325,19 +328,16 @@ export const logout = (req, res) => {
   return res.redirect('/');
 };
 
-export const see = async (req, res) => {
+export const profile = async (req, res) => {
   const {
     params: { id },
   } = req;
-  const user = await User.findById(id);
+  const user = await User.findById(id).populate('videos');
   if (!user) {
     return res.status(404).render('404', { pageTitle: 'User Not Found' });
   }
-  const videos = await Video.find({ owner: user._id });
-  console.log(videos);
   return res.render('users/profile', {
     pageTitle: `${user.name}'s Profile`,
     user,
-    videos,
   });
 };

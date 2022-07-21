@@ -9,18 +9,24 @@ const userSchema = new mongoose.Schema({
   socialOnly: { type: Boolean, default: false },
   avatarUrl: String,
   location: String,
+  videos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Video' }],
 });
 
 // userSchema.static('hashPassword', async function (password) {
-//   const saltRounds = 5;
-//   const hash = await bcrypt.hash(password, saltRounds);
-//   console.log('hash password', hash);
-//   return hash;
+//   if(password.isModified('password')) {
+//     const saltRounds = 5;
+//     const hash = await bcrypt.hash(password, saltRounds);
+//     console.log('hash password', hash);
+//     return hash;
+//   }
 // });
 
 userSchema.pre('save', async function () {
-  const saltRounds = 5;
-  this.password = await bcrypt.hash(this.password, saltRounds);
+  // excute only when password document is modified
+  if (this.isModified('password')) {
+    const saltRounds = 5;
+    this.password = await bcrypt.hash(this.password, saltRounds);
+  }
 });
 
 const User = mongoose.model('User', userSchema);
