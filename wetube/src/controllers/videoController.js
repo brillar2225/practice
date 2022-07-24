@@ -155,20 +155,6 @@ export const search = async (req, res) => {
       createdAt: {
         $gte: year,
       },
-      // $or: [
-      //   {
-      //     createdAt: {
-      //       $gte: year,
-      //     },
-      //   },
-      //   {
-      //     meta: {
-      //       rating: {
-      //         $gte: rating,
-      //       },
-      //     },
-      //   },
-      // ],
     });
   }
   return res.render('videos/search', {
