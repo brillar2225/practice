@@ -1,16 +1,23 @@
 extends ../layout 
 
 block content 
-  img(src=`/${loggedInUser.avatarUrl}`, alt="profile image", width='100px', height='100px')
   p=errorMessage
-  form(method="POST" enctype='multipart/form-data')
-    label(for="avatar") Avatar
-    input(type="file", id='avatar', name="avatar", accept='image/*')
-    input(name='name', type="text", placeholder='Edit Name', required, value=loggedInUser.name)
-    input(name='email', type="email", placeholder='Edit Email', required, value=loggedInUser.email)
-    input(name='username', type="text", placeholder='Edit Username', required, value=loggedInUser.username)
-    input(name='location', type="text", placeholder='Edit Location', required, value=loggedInUser.location)
-    input(type="submit", value="Update Profile")
+  section.mypage__container
+    h1.mypage__title Update my profile
+    .mypage__box 
+      img(src=`/${loggedInUser.avatarUrl}`, alt="profile image").mypage__avatar
+      form(method="POST" enctype='multipart/form-data').mypage__form
+        label(for="avatar").mypage__label.avatar My Avatar
+        input(type="file", id='avatar', name="avatar", accept='image/*').mypage__input.avatar
+        label(for="avatar").mypage__label.name Name
+        input(name='name', type="text", placeholder='Edit Name', required, value=loggedInUser.name).mypage__input.name
+        label(for="avatar").mypage__label.email Email 
+        input(name='email', type="email", placeholder='Edit Email', required, value=loggedInUser.email).mypage__input.email
+        label(for="avatar").mypage__label.username Username
+        input(name='username', type="text", placeholder='Edit Username', required, value=loggedInUser.username).mypage__input.username
+        label(for="avatar").mypage__label.location Location
+        input(name='location', type="text", placeholder='Edit Location', required, value=loggedInUser.location).mypage__input.location
+        input(type="submit", value="Update Profile")
     if !loggedInUser.socialOnly
       div 
         a(href="password") Change Password 

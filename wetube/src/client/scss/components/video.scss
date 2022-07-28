@@ -1,0 +1,38 @@
+// video mixin
+.video__mixin {
+  color: #a8a8a8;
+  .video__mixin__thumb {
+    height: 140px;
+    border-radius: 7px;
+    width: 100%;
+    background-color: ivory;
+  }
+  .video__mixin__data {
+    padding: 0px 15px;
+    .video__mixin__title {
+      display: block;
+      margin-top: 10px;
+      font-size: 16px;
+      line-height: 1.3333333333;
+      transition: all 500ms ease-in-out;
+      &:hover {
+        color: white;
+        font-weight: 600;
+      }
+    }
+    .video__mixin__meta {
+      margin-top: 5px;
+      font-size: 12px;
+      line-height: 1.2;
+      .video__mixin__span {
+        display: block;
+        margin-top: 3px;
+        // transition: all 500ms ease-in-out;
+        // &:first-child:hover {
+        //   color: white;
+        //   font-weight: 600;
+        // }
+      }
+    }
+  }
+}

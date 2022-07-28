@@ -3,7 +3,9 @@ import User from '../models/User';
 
 export const homepage = async (req, res) => {
   try {
-    const videos = await Video.find({}).sort({ createdAt: 'desc' });
+    const videos = await Video.find({})
+      .sort({ createdAt: 'desc' })
+      .populate('owner');
     return res.render('home', { pageTitle: 'Home', videos });
   } catch {
     return res.render('server-error');
@@ -148,14 +150,14 @@ export const search = async (req, res) => {
           },
         },
       ],
-    });
-  } else if (year || rating) {
-    // search movies by year or rating
+    }).populate('owner');
+  } else if (year) {
+    // search movies by year
     keywords = await Video.find({
       createdAt: {
         $gte: year,
       },
-    });
+    }).populate('owner');
   }
   return res.render('videos/search', {
     pageTitle: 'Search',

@@ -2,6 +2,16 @@ extends ../layout
 
 block content
   video(src='/' + video.fileUrl, controls, width='85%')
+  #videoController
+    i#playOnOff.fa-solid.fa-play
+    i#muteOnOff.fa-solid.fa-pause
+    
+    button#muteOnOff 🔊
+    input(type="range", name="volumeRange")
+    #loadingTime 
+      span#currentTime 00:00
+      span |
+      span#totalTime 00:00
   div 
     p=video.description
     small=video.createdAt
@@ -12,3 +22,6 @@ block content
     a(href=`${video.id}/edit`) Edit
     br
     a(href=`${video.id}/delete`) Delete 
+
+block scripts
+  script(src='/assets/js/videoPlayer.js')

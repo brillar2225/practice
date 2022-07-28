@@ -1,0 +1,76 @@
+.mypage__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  .mypage__title {
+    font-size: 30px;
+    line-height: 1.1538461538;
+    font-weight: 600;
+    color: #ffffff;
+  }
+  .mypage__box {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: auto;
+    width: 80%;
+    height: 500px;
+    border-radius: 20px;
+    background-color: #e3e3e3;
+    .mypage__avatar {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+    }
+    .mypage__form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 0;
+      color: $bg;
+      .mypage__label {
+        position: relative;
+        right: 135px;
+        font-size: 20px;
+        line-height: 1.1111111111;
+        font-weight: 500;
+        &.avatar {
+          position: relative;
+          top: -15px;
+          right: 375px;
+          font-size: 25px;
+          line-height: 1.0869565217;
+        }
+      }
+      .mypage__input {
+        position: relative;
+        top: -30px;
+        right: -40px;
+        padding: 5px 10px;
+        &.avatar {
+          position: relative;
+          top: 315px;
+          right: 374px;
+          padding: 0;
+          font-size: 18px;
+          line-height: 1.125;
+          color: $bg;
+        }
+      }
+      input[type='submit'] {
+        position: relative;
+        right: -40px;
+        padding: 5px 15px;
+        width: 78%;
+        cursor: pointer;
+        transition: all 500ms ease-in-out;
+        &:hover {
+          background-color: $red;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

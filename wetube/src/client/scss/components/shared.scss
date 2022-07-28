@@ -1,0 +1,59 @@
+.videos__grid {
+  display: grid;
+  gap: 50px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 40px;
+}
+
+.empty__message {
+  margin-bottom: 50px;
+  font-size: 18px;
+  line-height: 1.125;
+  text-align: center;
+}
+
+.input__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  margin: auto;
+  width: 768px;
+  border-radius: 20px;
+  background-color: #e3e3e3;
+  .form__title {
+    padding-bottom: 40px;
+    font-size: 30px;
+    line-height: 1.1538461538;
+    font-weight: 600;
+  }
+  input {
+    padding: 10px 15px;
+    margin-top: 10px;
+    width: 600px;
+  }
+  input[type='submit'] {
+    margin-top: 25px;
+    cursor: pointer;
+    transition: all 500ms ease-in-out;
+    &:hover {
+      background-color: $red;
+      font-weight: 600;
+    }
+  }
+  .link__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    font-size: 20px;
+    line-height: 1.1111111111;
+    transition: text-decoration 1s ease-in;
+    a {
+      padding-top: 10px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

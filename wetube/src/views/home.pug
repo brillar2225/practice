@@ -2,7 +2,9 @@ extends layout
 include mixins/video
 
 block content
-  each item in videos
-    +video(item) 
-  else 
-    h3 Sorry. Nothing Found.
+  .videos__grid 
+    each item in videos
+      +video(item) 
+      +video(item) 
+    else 
+      span.empty__message No Videos Found.
