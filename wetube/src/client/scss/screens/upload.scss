@@ -1,0 +1,62 @@
+.upload__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  color: $bg;
+  .upload__box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    height: 500px;
+    border-radius: 20px;
+    background-color: #e3e3e3;
+    .upload__title {
+      position: absolute;
+      top: 25px;
+      font-size: 30px;
+      line-height: 1.1538461538;
+      font-weight: 600;
+    }
+    .upload__form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      top: 100px;
+      width: 80%;
+      .upload__label {
+        position: relative;
+        top: 30px;
+        right: 225px;
+        font-size: 18px;
+        line-height: 1.125;
+        font-weight: 500;
+      }
+      .upload__input {
+        position: relative;
+        top: 0;
+        right: -57px;
+        padding: 5px 10px;
+        width: 73%;
+      }
+      input[type='submit'] {
+        position: relative;
+        top: 50px;
+        width: 85%;
+        padding: 7px 13px;
+        background-color: #e9e9ed;
+        text-align: center;
+        cursor: pointer;
+        transition: all 500ms ease-in-out;
+        &:hover {
+          background-color: $red;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

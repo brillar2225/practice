@@ -1,94 +1,100 @@
 .mypage__container {
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 70vh;
-  .mypage__title {
-    position: absolute;
-    top: 45px;
-    font-size: 30px;
-    line-height: 1.1538461538;
-    font-weight: 600;
-    color: $bg;
-  }
-  .mypage__box {
+  color: $bg;
+  .mypage__group {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    position: relative;
     margin: auto;
     width: 80%;
     height: 500px;
     border-radius: 20px;
     background-color: #e3e3e3;
-    .mypage__avatar {
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
+    .mypage__title {
+      position: absolute;
+      top: 20px;
+      font-size: 30px;
+      line-height: 1.1538461538;
+      font-weight: 600;
     }
-    .mypage__form {
+    .mypage__box {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
       position: relative;
-      top: -10px;
-      right: -32px;
-      padding: 40px 0;
-      color: $bg;
-      .mypage__label {
-        position: relative;
-        top: 30px;
-        right: 173px;
-        line-height: 1.1111111111;
+      width: 100%;
+      .mypage__avatar {
+        position: absolute;
+        left: 60px;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+      }
+      .mypage__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: 46px;
+        width: 45%;
+        font-size: 18px;
+        line-height: 1.125;
         font-weight: 500;
-      }
-      .mypage__input {
-        // position: relative;
-        // bottom: 0;
-        // right: -27px;
-        padding: 5px 10px;
-        &.avatar {
-          position: absolute;
-          top: 345px;
-          right: 390px;
-          width: 240px;
-          padding: 0;
-          font-size: 18px;
-          line-height: 1.125;
-          color: $bg;
+        .mypage__label {
+          position: relative;
+          top: 32px;
+          right: 213px;
+          margin-right: 5px;
         }
-      }
-      input[type='submit'] {
-        position: relative;
-        top: 15px;
-        right: 0;
-        padding: 13px 64px;
-        background-color: $red;
-        cursor: pointer;
-        text-align: center;
-        transition: all 500ms ease-in-out;
-        &:hover {
-          font-weight: 600;
+        .mypage__input {
+          padding: 5px 10px;
+          width: 90%;
+          &.avatar {
+            position: absolute;
+            bottom: -33px;
+            left: -329px;
+            width: 240px;
+          }
+        }
+        input[type='submit'] {
+          position: relative;
+          top: 15px;
+          right: 0;
+          padding: 13px 15px;
+          width: 90%;
+          background-color: #e9e9ed;
+          text-align: center;
+          cursor: pointer;
+          transition: all 500ms ease-in-out;
+          &:hover {
+            background-color: $red;
+            font-weight: 600;
+          }
         }
       }
     }
     .mypage__pwlink {
-      position: absolute;
-      bottom: 92px;
-      right: 165px;
+      position: relative;
+      top: 200px;
+      width: 70%;
       color: $bg;
       a {
         display: block;
-        padding: 12px 48px;
+        padding: 10px 20px;
         border-radius: 5px;
-        background-color: #e9e9ed;
+        background-color: $red;
         font-size: 16px;
         line-height: 1.1428571429;
         text-align: center;
         transition: all 500ms ease-in-out;
         &:hover {
-          background-color: $red;
           font-weight: 600;
         }
       }

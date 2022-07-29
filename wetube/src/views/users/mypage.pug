@@ -1,22 +1,24 @@
 extends ../layout 
 
 block content 
-  p=errorMessage
   section.mypage__container
-    h1.mypage__title Update my profile
-    .mypage__box 
-      img(src=`/${loggedInUser.avatarUrl}`, alt="profile image").mypage__avatar
-      form(method="POST" enctype='multipart/form-data').mypage__form
-        input(type="file", id='avatar', name="avatar", accept='image/*').mypage__input.avatar
-        label(for="avatar").mypage__label.name Name
-        input(name='name', type="text", placeholder='Edit Name', required, value=loggedInUser.name).mypage__input.name
-        label(for="avatar").mypage__label.email Email 
-        input(name='email', type="email", placeholder='Edit Email', required, value=loggedInUser.email).mypage__input.email
-        label(for="avatar").mypage__label.username Username
-        input(name='username', type="text", placeholder='Edit Username', required, value=loggedInUser.username).mypage__input.username
-        label(for="avatar").mypage__label.location Location
-        input(name='location', type="text", placeholder='Edit Location', required, value=loggedInUser.location).mypage__input.location
-        input(type="submit", value="Update Profile")
+    h1.sr-only Edit the profile from the below form.
+    p=errorMessage
+    .mypage__group 
+      h1.mypage__title Update the profile.
+      .mypage__box
+        img(src=`/${loggedInUser.avatarUrl}`, alt="profile image").mypage__avatar
+        form(method="POST" enctype='multipart/form-data').mypage__form
+          input(type="file", id='avatar', name="avatar", accept='image/*').mypage__input.avatar
+          label(for="name").mypage__label.name Name
+          input(name='name', type="text", placeholder='Edit Name', required, value=loggedInUser.name).mypage__input.name
+          label(for="email").mypage__label.email Email 
+          input(name='email', type="email", placeholder='Edit Email', required, value=loggedInUser.email).mypage__input.email
+          label(for="username").mypage__label.username Username
+          input(name='username', type="text", placeholder='Edit Username', required, value=loggedInUser.username).mypage__input.username
+          label(for="location").mypage__label.location Location
+          input(name='location', type="text", placeholder='Edit Location', required, value=loggedInUser.location).mypage__input.location
+          input(type="submit", value="Update Profile")
       if !loggedInUser.socialOnly
         .mypage__pwlink
           a(href="password") Change Password 
