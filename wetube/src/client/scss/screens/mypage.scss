@@ -54,7 +54,7 @@
           margin-right: 5px;
         }
         .mypage__input {
-          padding: 5px 10px;
+          padding: 10px 15px;
           width: 90%;
           &.avatar {
             position: absolute;
@@ -84,12 +84,12 @@
       position: relative;
       top: 200px;
       width: 70%;
-      color: $bg;
+      color: #e3e3e3;
       a {
         display: block;
         padding: 10px 20px;
         border-radius: 5px;
-        background-color: $red;
+        background-color: #202020;
         font-size: 16px;
         line-height: 1.1428571429;
         text-align: center;
