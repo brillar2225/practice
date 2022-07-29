@@ -7,7 +7,6 @@ block content
     .mypage__box 
       img(src=`/${loggedInUser.avatarUrl}`, alt="profile image").mypage__avatar
       form(method="POST" enctype='multipart/form-data').mypage__form
-        label(for="avatar").mypage__label.avatar My Avatar
         input(type="file", id='avatar', name="avatar", accept='image/*').mypage__input.avatar
         label(for="avatar").mypage__label.name Name
         input(name='name', type="text", placeholder='Edit Name', required, value=loggedInUser.name).mypage__input.name
@@ -18,6 +17,6 @@ block content
         label(for="avatar").mypage__label.location Location
         input(name='location', type="text", placeholder='Edit Location', required, value=loggedInUser.location).mypage__input.location
         input(type="submit", value="Update Profile")
-    if !loggedInUser.socialOnly
-      div 
-        a(href="password") Change Password 
+      if !loggedInUser.socialOnly
+        .mypage__pwlink
+          a(href="password") Change Password 

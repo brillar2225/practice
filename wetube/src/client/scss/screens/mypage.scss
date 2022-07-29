@@ -1,14 +1,17 @@
 .mypage__container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 70vh;
   .mypage__title {
+    position: absolute;
+    top: 45px;
     font-size: 30px;
     line-height: 1.1538461538;
     font-weight: 600;
-    color: #ffffff;
+    color: $bg;
   }
   .mypage__box {
     display: flex;
@@ -28,31 +31,28 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
+      top: -10px;
+      right: -32px;
       padding: 40px 0;
       color: $bg;
       .mypage__label {
         position: relative;
-        right: 135px;
-        font-size: 20px;
+        top: 30px;
+        right: 173px;
         line-height: 1.1111111111;
         font-weight: 500;
-        &.avatar {
-          position: relative;
-          top: -15px;
-          right: 375px;
-          font-size: 25px;
-          line-height: 1.0869565217;
-        }
       }
       .mypage__input {
-        position: relative;
-        top: -30px;
-        right: -40px;
+        // position: relative;
+        // bottom: 0;
+        // right: -27px;
         padding: 5px 10px;
         &.avatar {
-          position: relative;
-          top: 315px;
-          right: 374px;
+          position: absolute;
+          top: 345px;
+          right: 390px;
+          width: 240px;
           padding: 0;
           font-size: 18px;
           line-height: 1.125;
@@ -61,10 +61,31 @@
       }
       input[type='submit'] {
         position: relative;
-        right: -40px;
-        padding: 5px 15px;
-        width: 78%;
+        top: 15px;
+        right: 0;
+        padding: 13px 64px;
+        background-color: $red;
         cursor: pointer;
+        text-align: center;
+        transition: all 500ms ease-in-out;
+        &:hover {
+          font-weight: 600;
+        }
+      }
+    }
+    .mypage__pwlink {
+      position: absolute;
+      bottom: 92px;
+      right: 165px;
+      color: $bg;
+      a {
+        display: block;
+        padding: 12px 48px;
+        border-radius: 5px;
+        background-color: #e9e9ed;
+        font-size: 16px;
+        line-height: 1.1428571429;
+        text-align: center;
         transition: all 500ms ease-in-out;
         &:hover {
           background-color: $red;
