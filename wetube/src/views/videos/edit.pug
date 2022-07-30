@@ -1,9 +1,15 @@
 extends ../layout
 
 block content 
-  h4 Change Title of video
-  form(method='POST')
-    input(name='title', type='text', placeholder='Video Title', value=video.title, required)
-    input(name='description', type='text', placeholder='Description', value=video.description, minlenth='20', required)
-    input(name='hashtags', placeholder='Hashtags, separated by comma',value=video.hashtags.join(), required)
-    input(value='Save', type='submit')
+  section.edit__container 
+    h1.sr-only Edit the video&#39;s infomations from the below form.
+    .edit__box 
+      h1.edit__title Change Title of video
+      form(method='POST').edit__form
+        label(for="title").edit__label.title Title
+        input(name='title',id='title', type='text', placeholder='Video Title', value=video.title, required).edit__input.title
+        label(for="description").edit__label.title Description
+        input(name='description',id='description', type='text', placeholder='Description', value=video.description, minlenth='20', required).edit__input.description
+        label(for="hashtags").edit__label.hashtags Hashtags
+        input(name='hashtags',id='hashtags', placeholder='Hashtags, separated by comma',value=video.hashtags.join(), required).edit__input.hashtags
+        input(value='Save', type='submit')

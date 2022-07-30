@@ -10,12 +10,13 @@
 @import './components/forms.scss';
 
 // Screens
-@import './screens/search.scss';
 @import './screens/join.scss';
 @import './screens/login.scss';
-@import './screens/mypage.scss';
-@import './screens/upload.scss';
 @import './screens/password.scss';
+@import './screens/search.scss';
+@import './screens/upload.scss';
+@import './screens/mypage.scss';
+@import './screens/edit.scss';
 
 // Default
 * {
