@@ -2,8 +2,17 @@ extends ../layout
 include ../mixins/video
 
 block content 
-  .videos__grid
-    each item in user.videos
-      +video(item)
-    else
-      span.empty__message No Videos Found.
+  section.profile__container 
+    h1.sr-only #{user.name}&#39;s uploaded videos 
+    .profile__box 
+      .profile__userdata
+        img(src=user.socialOnly === false ? '/' + user.avatarUrl : user.avatarUrl, alt="profile image").profile__avatar
+        if loggedInUser._id !== user.id
+          h3.profile__name=user.name
+        else 
+          a(href='/users/mypage').profile__name Edit #{user.name}
+      .videos__grid
+        each item in user.videos
+          +video(item)
+        else
+          span.empty__message No Videos Found.

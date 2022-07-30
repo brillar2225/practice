@@ -14,9 +14,11 @@ header
         else 
           li 
             a(href='/users/logout') Logout
-          li 
-            a(href=`/users/${loggedInUser._id}`) My Profile
-          li 
-            a(href='/users/mypage') Edit #{loggedInUser.name}'s Profile 
           li
             a(href="/videos/upload") Upload Video
+          li 
+            a(href=`/users/${loggedInUser._id}`)
+              if !loggedInUser.avatarUrl
+                span 😊
+              else
+                img(src=loggedInUser.socialOnly === false ? '/' + loggedInUser.avatarUrl : loggedInUser.avatarUrl, alt="profile image").header__avatar

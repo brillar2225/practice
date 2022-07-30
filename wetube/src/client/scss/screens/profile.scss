@@ -1,0 +1,18 @@
+.profile__userdata {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+  .profile__avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+  .profile__name {
+    margin-top: 10px;
+    font-size: 20px;
+    line-height: 1.1111111111;
+    font-weight: 500;
+  }
+}

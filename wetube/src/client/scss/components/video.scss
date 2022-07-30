@@ -14,10 +14,10 @@
       margin-top: 10px;
       font-size: 16px;
       line-height: 1.3333333333;
+      color: white;
       transition: all 500ms ease-in-out;
       &:hover {
-        color: white;
-        font-weight: 600;
+        font-weight: 500;
       }
     }
     .video__mixin__meta {
@@ -27,11 +27,11 @@
       .video__mixin__span {
         display: block;
         margin-top: 3px;
-        // transition: all 500ms ease-in-out;
-        // &:first-child:hover {
-        //   color: white;
-        //   font-weight: 600;
-        // }
+        transition: all 500ms ease-in-out;
+        &:first-child:hover {
+          color: white;
+          font-weight: 500;
+        }
       }
     }
   }

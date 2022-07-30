@@ -24,7 +24,7 @@ header {
       font-weight: 600;
       text-transform: uppercase;
       a {
-        padding: 13px 20px;
+        padding: 10px 20px;
       }
       .header__btn {
         border-radius: 5px;
@@ -34,6 +34,11 @@ header {
         &:hover {
           background-color: $red;
         }
+      }
+      .header__avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
       }
     }
   }
