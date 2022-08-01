@@ -5,7 +5,7 @@ block content
     h1.sr-only Edit the profile from the below form.
     p=errorMessage
     .mypage__group 
-      h1.mypage__title Update the profile.
+      h1.mypage__title Update the profile
       .mypage__box
         img(src=loggedInUser.socialOnly === false ? '/' + loggedInUser.avatarUrl : loggedInUser.avatarUrl, alt="profile image").mypage__avatar
         form(method="POST" enctype='multipart/form-data').mypage__form
