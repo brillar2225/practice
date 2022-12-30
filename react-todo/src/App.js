@@ -44,7 +44,6 @@ function App() {
     setTodo('');
     setTodos((currArray) => [todo, ...currArray]);
   };
-  console.log(todos);
 
   return (
     <div>
