@@ -1,14 +1,40 @@
 import { useState } from 'react';
 
+function InputTodo({ todo, todos, onChange, onSubmit }) {
+  return (
+    <div>
+      <h1>Amount of TODOS: {todos.length}</h1>
+      <form onSubmit={onSubmit}>
+        <input
+          type='text'
+          placeholder='Wrtie your To-Do...'
+          value={todo}
+          onChange={onChange}
+        />
+        <button type='submit'>Add To-Do</button>
+      </form>
+    </div>
+  );
+}
+
+function ItemList({ item, index }) {
+  return (
+    <li key={index}>
+      <input type='checkbox' name={item} id={index} />
+      <span>{item}</span>
+    </li>
+  );
+}
+
 function App() {
   const [todo, setTodo] = useState('');
   const [todos, setTodos] = useState([]);
 
-  const onChange = (event) => {
+  const handleChange = (event) => {
     setTodo(event.target.value);
   };
 
-  const onSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     if (todo === '') {
@@ -22,22 +48,15 @@ function App() {
 
   return (
     <div>
-      <h1>Amount of TODOS: {todos.length}</h1>
-      <form onSubmit={onSubmit}>
-        <input
-          type='text'
-          placeholder='Wrtie your to-do...'
-          value={todo}
-          onChange={onChange}
-        />
-        <button type='submit'>Add To-Do</button>
-      </form>
+      <InputTodo
+        todo={todo}
+        todos={todos}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+      />
       <ul>
         {todos.map((item, index) => (
-          <li key={index}>
-            <input type='checkbox' name={item} id={index} />
-            <span>{item}</span>
-          </li>
+          <ItemList key={index} item={item} index={index} />
         ))}
       </ul>
     </div>
