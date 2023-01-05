@@ -4,6 +4,7 @@ import {
   RouterProvider,
   useParams,
 } from 'react-router-dom';
+import Root from './routes/Root';
 import Home from './routes/Home';
 import Detail from './routes/Detail';
 import Error from './routes/Error';
@@ -11,13 +12,12 @@ import Error from './routes/Error';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
+    element: <Root />,
     errorElement: <Error />,
-  },
-  {
-    path: 'movies/:id',
-    element: <ValidateIds />,
-    errorElement: <Error />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: 'movies/:id', element: <ValidateIds /> },
+    ],
   },
 ]);
 
@@ -31,23 +31,5 @@ function ValidateIds() {
 
   return regexId.test(id) ? <Detail /> : <Error />;
 }
-
-// Way 2
-// import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-// function App() {
-//   return (
-//     <BrowserRouter>
-//       <Routes>
-//         <Route path='/' element={<Home />} errorElement={<Error />} />
-//         <Route
-//           path='/movies/:id'
-//           element={<Detail />}
-//           errorElement={<Error />}
-//         />
-//       </Routes>
-//     </BrowserRouter>
-//   );
-// }
 
 export default App;
