@@ -1,0 +1,53 @@
+.body {
+  margin: 130px auto;
+  max-width: 1080px;
+}
+
+.detail {
+  display: flex;
+  justify-content: center;
+}
+
+.detail__container {
+  margin-left: 30px;
+}
+
+.detail__title {
+  margin: 30px 0 20px;
+  font-size: 45px;
+}
+
+.detail__genres {
+  display: flex;
+  align-items: center;
+}
+
+.detail__genre {
+  margin: 0 5px;
+  padding: 7px;
+  border: 1px solid bisque;
+  border-radius: 50px;
+  background-color: bisque;
+  font-size: 12px;
+}
+
+.detail__infos {
+  margin-top: 30px;
+}
+
+.detail__desc {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.detail__spans {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.detail__span {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 0;
+}

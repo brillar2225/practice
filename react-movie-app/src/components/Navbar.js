@@ -6,11 +6,10 @@ function Navbar() {
   return (
     <nav className={style.nav}>
       <div className={style.nav__home}>
-        <h1>Movie Rank</h1>
+        <Link to='/' className={style.nav__link}>
+          Movie Rank
+        </Link>
       </div>
-      <Link to='/' className={style.nav__link}>
-        Home
-      </Link>
     </nav>
   );
 }

@@ -20,30 +20,34 @@ function Detail() {
   }, [getMovie]);
 
   return (
-    <div>
+    <div className={style.body}>
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <div>
+        <div className={style.detail}>
           <img src={movie.large_cover_image} alt={`${movie.title} cover`} />
-          <div className={style.detail__info}>
+          <div className={style.detail__container}>
             <h1 className={style.detail__title}>{movie.title_long}</h1>
             <ul className={style.detail__genres}>
               {movie.genres.map((item, index) => (
-                <li key={index}>{item}</li>
+                <li className={style.detail__genre} key={index}>
+                  {item}
+                </li>
               ))}
             </ul>
-            <div className={style.detail__box}>
+            <div className={style.detail__infos}>
               <h2 className={style.detail__desc}>{movie.description_full}</h2>
-              <div className={style.detail__infos}>
-                <span className={style.detail__year}>{movie.year}</span>
-                <span className={style.detail__runtime}>
-                  {movie.runtime} minutes
+              <div className={style.detail__spans}>
+                <span className={style.detail__span}>
+                  Released Year : {movie.year}
                 </span>
-                <span className={style.detail__rating}>
+                <span className={style.detail__span}>
+                  Runtime : {movie.runtime} minutes
+                </span>
+                <span className={style.detail__span}>
                   Rating : {movie.rating}
                 </span>
-                <span className={style.detail__language}>
+                <span className={style.detail__span}>
                   Language : {movie.language}
                 </span>
               </div>

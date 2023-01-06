@@ -16,12 +16,13 @@
 }
 
 .movie__title {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .movie__genres {
   display: flex;
-  list-style-type: none;
+  justify-content: center;
+  align-items: center;
 }
 
 .movie__genre {
@@ -30,4 +31,5 @@
   border: 1px solid bisque;
   border-radius: 50px;
   background-color: bisque;
+  font-size: 12px;
 }
