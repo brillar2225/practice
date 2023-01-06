@@ -42,7 +42,8 @@ function Detail() {
                   Released Year : {movie.year}
                 </span>
                 <span className={style.detail__span}>
-                  Runtime : {movie.runtime} minutes
+                  Runtime : {movie.runtime}{' '}
+                  {movie.rutime >= 1 ? 'minutes' : 'mitune (unknown)'}
                 </span>
                 <span className={style.detail__span}>
                   Rating : {movie.rating}

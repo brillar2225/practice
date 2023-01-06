@@ -12,11 +12,17 @@ function Movie({ id, medium_cover_image, title, genres }) {
       />
       <h1 className={style.movie__title}>{title}</h1>
       <ul className={style.movie__genres}>
-        {genres.map((li, id) => (
-          <li className={style.movie__genre} key={id}>
-            {li}
-          </li>
-        ))}
+        {genres.length < 5
+          ? genres.map((li, id) => (
+              <li className={style.movie__genre} key={id}>
+                {li}
+              </li>
+            ))
+          : genres.slice(0, 4).map((li, id) => (
+              <li className={style.movie__genre} key={id}>
+                {li}
+              </li>
+            ))}
       </ul>
     </Link>
   );

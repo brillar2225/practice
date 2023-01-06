@@ -3,20 +3,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 490px;
-  height: 580px;
+  padding: 10px;
+  width: 310px;
+  height: 100%;
   text-align: center;
+  border-radius: 10px;
   box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
     0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
 }
 
 .movie__img {
-  width: 280px;
-  height: 430px;
+  width: 250px;
+  height: 365px;
 }
 
 .movie__title {
-  font-size: 18px;
+  margin: 20px 0 15px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .movie__genres {

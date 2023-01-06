@@ -2,6 +2,7 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
   padding: 0;
@@ -37,4 +38,11 @@ li {
 a {
   color: #000000;
   text-decoration: none;
+}
+
+button {
+  padding: 0;
+  border: 0;
+  outline: transparent;
+  background-color: transparent;
 }
