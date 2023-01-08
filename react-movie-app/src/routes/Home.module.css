@@ -18,10 +18,15 @@
   position: fixed;
   bottom: 15px;
   right: 10px;
-  background-color: #e3e3e3;
   border-radius: 50%;
-  opacity: 0.6;
-  cursor: pointer;
+  background-color: #e3e3e3;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 5;
+}
+
+.home__btn.visible {
+  pointer-events: all;
 }
 
 .home__icon {
