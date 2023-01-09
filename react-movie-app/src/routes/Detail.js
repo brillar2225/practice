@@ -20,7 +20,7 @@ function Detail() {
   }, [getMovie]);
 
   return (
-    <div className={style.body}>
+    <div className={style.container}>
       {loading ? (
         <div className={style.loading}>loading</div>
       ) : (

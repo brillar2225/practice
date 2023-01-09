@@ -16,7 +16,7 @@
   }
 }
 
-.body {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,7 +28,6 @@
 .loading {
   position: absolute;
   top: 50%;
-  right: 50%;
   transform: translateY(-50%);
   width: 150px;
   height: 150px;

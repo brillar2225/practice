@@ -1,0 +1,21 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  font-size: 23px;
+  background-color: #e3e3e3;
+}
+
+span {
+  display: block;
+  margin: 5px 0;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 20px;
+    font-size: 16px;
+  }
+}

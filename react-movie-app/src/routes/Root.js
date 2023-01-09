@@ -1,6 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import style from './Root.module.css';
 
 function Root() {
@@ -8,6 +9,7 @@ function Root() {
     <div className={style.root}>
       <Navbar />
       <Outlet />
+      <Footer />
     </div>
   );
 }

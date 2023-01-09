@@ -45,32 +45,38 @@ function Home() {
   }, [handleScroll]);
 
   return (
-    <div className={style.body} ref={homeRef}>
+    <div className={style.container} ref={homeRef}>
       {loading ? (
-        <div className={style.loading}>loading</div>
+        <div className={style.loading}>
+          <div className={style.loading__bar}>loading</div>
+        </div>
       ) : (
         <div className={style.home}>
-          <div className={style.home__movies}>
-            {movies.map((movie) => (
-              <Movie
-                key={movie.id}
-                id={movie.id}
-                medium_cover_image={movie.medium_cover_image}
-                title={movie.title}
-                genres={movie.genres}
-              />
-            ))}
+          <div className={style.home__box}>
+            <div className={style.home__movies}>
+              {movies.map((movie) => (
+                <Movie
+                  key={movie.id}
+                  id={movie.id}
+                  medium_cover_image={movie.medium_cover_image}
+                  title={movie.title}
+                  genres={movie.genres}
+                />
+              ))}
+            </div>
+            <a
+              href='#root'
+              className={
+                visible
+                  ? `${style.home__btn} ${style.visible}`
+                  : style.home__btn
+              }
+              style={{ opacity: opacity }}
+              ref={btnRef}
+            >
+              <FontAwesomeIcon icon={faArrowUp} className={style.home__icon} />
+            </a>
           </div>
-          <a
-            href='#root'
-            className={
-              visible ? `${style.home__btn} ${style.visible}` : style.home__btn
-            }
-            style={{ opacity: opacity }}
-            ref={btnRef}
-          >
-            <FontAwesomeIcon icon={faArrowUp} className={style.home__icon} />
-          </a>
         </div>
       )}
     </div>
