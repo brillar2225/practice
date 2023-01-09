@@ -22,7 +22,7 @@ function Detail() {
   return (
     <div className={style.body}>
       {loading ? (
-        <div>Loading...</div>
+        <div className={style.loading}>loading</div>
       ) : (
         <div className={style.detail}>
           <img src={movie.large_cover_image} alt={`${movie.title} cover`} />

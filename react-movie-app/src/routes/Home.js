@@ -47,7 +47,7 @@ function Home() {
   return (
     <div className={style.body} ref={homeRef}>
       {loading ? (
-        <div>Loading...</div>
+        <div className={style.loading}>loading</div>
       ) : (
         <div className={style.home}>
           <div className={style.home__movies}>
