@@ -7,6 +7,7 @@ import style from './Home.module.css';
 function Home() {
   const [scroll, setScroll] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [visible, setVisible] = useState(false);
   const [movies, setMovies] = useState([]);
   const [opacity, setOpacity] = useState(0);
   const homeRef = useRef(null);
@@ -26,15 +27,14 @@ function Home() {
     const homeHeight = homeRef.current.offsetHeight;
 
     setScroll(window.scrollY);
-    setOpacity(scroll / homeHeight);
+    setOpacity(scroll / (homeHeight - scroll));
 
-    if (scroll > homeHeight / 2) {
-      btnRef.current.classList.add('visible');
+    if (scroll > homeHeight / 4) {
+      setVisible(true);
     } else {
-      btnRef.current.classList.remove('visible');
+      setVisible(false);
     }
-    btnRef.current.style.opacity = opacity;
-  }, [opacity, scroll]);
+  }, [scroll]);
 
   useEffect(() => {
     getMovies();
@@ -47,7 +47,7 @@ function Home() {
   return (
     <div className={style.body} ref={homeRef}>
       {loading ? (
-        <div>Loading..</div>
+        <div>Loading...</div>
       ) : (
         <div className={style.home}>
           <div className={style.home__movies}>
@@ -61,7 +61,14 @@ function Home() {
               />
             ))}
           </div>
-          <a href='#root' className={style.home__btn} ref={btnRef}>
+          <a
+            href='#root'
+            className={
+              visible ? `${style.home__btn} ${style.visible}` : style.home__btn
+            }
+            style={{ opacity: opacity }}
+            ref={btnRef}
+          >
             <FontAwesomeIcon icon={faArrowUp} className={style.home__icon} />
           </a>
         </div>

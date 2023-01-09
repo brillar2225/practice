@@ -16,17 +16,18 @@
 
 .home__btn {
   position: fixed;
-  bottom: 15px;
-  right: 10px;
+  bottom: 20px;
+  right: 20px;
   border-radius: 50%;
   background-color: #e3e3e3;
+  cursor: pointer;
   pointer-events: none;
   opacity: 0;
   z-index: 5;
 }
 
-.home__btn.visible {
-  pointer-events: all;
+.visible {
+  pointer-events: auto;
 }
 
 .home__icon {
