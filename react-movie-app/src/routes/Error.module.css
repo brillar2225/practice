@@ -1,0 +1,42 @@
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100vh;
+}
+
+.error__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+}
+
+.error__notice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  line-height: 50px;
+}
+
+.error__title {
+  font-weight: 700;
+}
+
+.error__desc {
+  font-weight: 600;
+}
+
+.error__btn {
+  padding: 10px 13px;
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: 500;
+  border: 1px solid #3d3d3d;
+  border-radius: 10px;
+  cursor: pointer;
+}
