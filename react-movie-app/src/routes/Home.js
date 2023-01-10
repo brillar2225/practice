@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Movie from '../components/Movie';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import Button from '../components/Button';
 import style from './Home.module.css';
 
 function Home() {
@@ -61,14 +60,7 @@ function Home() {
                 />
               ))}
             </div>
-            <a
-              href='#root'
-              className={style.home__btn}
-              style={{ opacity: opacity }}
-              ref={btnRef}
-            >
-              <FontAwesomeIcon icon={faArrowUp} className={style.home__icon} />
-            </a>
+            <Button style={style} opacity={opacity} btnRef={btnRef} />
           </div>
         </div>
       )}
