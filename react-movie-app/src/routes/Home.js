@@ -5,9 +5,7 @@ import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import style from './Home.module.css';
 
 function Home() {
-  const [scroll, setScroll] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [visible, setVisible] = useState(false);
   const [movies, setMovies] = useState([]);
   const [opacity, setOpacity] = useState(0);
   const homeRef = useRef(null);
@@ -26,15 +24,14 @@ function Home() {
   const handleScroll = useCallback(() => {
     const homeHeight = homeRef.current.offsetHeight;
 
-    setScroll(window.scrollY);
-    setOpacity(scroll / (homeHeight - scroll));
+    setOpacity(window.scrollY / (homeHeight - window.scrollY));
 
-    if (scroll > homeHeight / 4) {
-      setVisible(true);
+    if (window.scrollY > homeHeight / 4) {
+      btnRef.current.classList.add(style.visible);
     } else {
-      setVisible(false);
+      btnRef.current.classList.remove(style.visible);
     }
-  }, [scroll]);
+  }, []);
 
   useEffect(() => {
     getMovies();
@@ -66,11 +63,7 @@ function Home() {
             </div>
             <a
               href='#root'
-              className={
-                visible
-                  ? `${style.home__btn} ${style.visible}`
-                  : style.home__btn
-              }
+              className={style.home__btn}
               style={{ opacity: opacity }}
               ref={btnRef}
             >
