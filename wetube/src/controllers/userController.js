@@ -160,7 +160,6 @@ export const startKakaoLogin = (req, res) => {
   };
   const params = new URLSearchParams(config).toString();
   const finalUrl = `${baseUrl}?${params}`;
-
   return res.redirect(finalUrl);
 };
 

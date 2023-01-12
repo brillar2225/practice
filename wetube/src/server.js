@@ -5,6 +5,7 @@ import MongoStore from 'connect-mongo';
 import rootRouter from './routers/rootRouter';
 import userRouter from './routers/userRouter';
 import videoRouter from './routers/videoRouter';
+import apiRouter from './routers/apiRouter';
 import { localsMiddleware } from './middlewares';
 
 const app = express();
@@ -14,7 +15,7 @@ app.use(logger);
 app.set('view engine', 'pug');
 app.set('views', process.cwd() + '/src/views');
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true })); // parses request body from the form
 app.use(
   session({
     secret: process.env.COOKIE_SECRET,
@@ -30,5 +31,6 @@ app.use('/assets', express.static('assets'));
 app.use('/', rootRouter);
 app.use('/users', userRouter);
 app.use('/videos', videoRouter);
+app.use('/api', apiRouter);
 
 export default app;

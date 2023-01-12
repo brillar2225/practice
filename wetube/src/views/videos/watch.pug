@@ -3,7 +3,7 @@ extends ../layout
 block content
   section.video__container 
     h1.sr-only This page is #{video.owner.name}&#39;s video is named #{video.title}.
-    article#videoControllerGroup.video-controller__group
+    article(data-id=video._id)#videoControllerGroup.video-controller__group
       h2.sr-only Watch #{video.title}
       video(src=`/${video.fileUrl}`, width='85%')
       #videoController.video-controller__box

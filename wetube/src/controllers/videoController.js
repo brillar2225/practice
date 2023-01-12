@@ -132,7 +132,7 @@ export const postUpload = async (req, res) => {
 
 export const search = async (req, res) => {
   const {
-    query: { keyword, year, rating },
+    query: { keyword, year },
   } = req;
   let keywords = [];
   // search movies by keyword including title and summary
@@ -164,6 +164,17 @@ export const search = async (req, res) => {
     keywords,
     keyword,
     year,
-    rating,
   });
+};
+
+export const registerView = async (req, res) => {
+  const { id } = req.params;
+  console.log(id);
+  const video = await Video.findById(id);
+  if (!video) {
+    return res.sendStatus(404);
+  }
+  video.meta.views = video.meta.views + 1;
+  await video.save();
+  return res.sendStatus(200);
 };
