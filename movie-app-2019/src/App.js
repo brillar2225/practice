@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Movie from './components/Movie';
+import style from './App.module.css';
 
 class App extends React.Component {
   state = {
@@ -26,11 +27,15 @@ class App extends React.Component {
   render() {
     const { isLoading, movies } = this.state;
     return (
-      <div>
-        {isLoading
-          ? 'Loading'
-          : movies.map((movie) => {
-              return (
+      <div className={style.body__container}>
+        {isLoading ? (
+          <div className={style.loading}>
+            <div className={style.loading__bar}>loading</div>
+          </div>
+        ) : (
+          movies.map((movie) => {
+            return (
+              <div className={style.movies}>
                 <Movie
                   key={movie.id}
                   id={movie.id}
@@ -41,8 +46,10 @@ class App extends React.Component {
                   rating={movie.rating}
                   genres={movie.genres}
                 />
-              );
-            })}
+              </div>
+            );
+          })
+        )}
       </div>
     );
   }
