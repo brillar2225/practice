@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import style from './Movie.module.css';
 
 // If the component doesn't need any state, it deosn't have to be a class component.
 function Movie({ id, url, title, desc, year, rating, genres }) {
   return (
-    <div key={id} className={style.movie}>
+    <Link to={`/movies/${id}`} className={style.movie}>
       <img src={url} alt={title} title={title} className={style.movie__img} />
       <div className={style.movie__infos}>
         <div className={style.movie__title__group}>
@@ -32,7 +33,7 @@ function Movie({ id, url, title, desc, year, rating, genres }) {
               ))}
         </ul>
       </div>
-    </div>
+    </Link>
   );
 }
 
