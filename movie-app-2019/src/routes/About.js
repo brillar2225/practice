@@ -17,14 +17,20 @@ class About extends React.Component {
     } = await axios.get(
       `https://yts.mx/api/v2/movie_details.json?movie_id=${id}`
     );
-    console.log(movie);
     this.setState({ movie, isLoading: false });
   }
 
   render() {
     const { movie, isLoading } = this.state;
+    const bg = {
+      backgroundImage: `url('${movie.background_image_original}')`,
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+    };
+
     return (
-      <div>
+      <div className={style.body__container} style={bg}>
         {isLoading ? (
           <div className={style.loading}>
             <div className={style.loading__bar}>loading</div>

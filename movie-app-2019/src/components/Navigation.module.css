@@ -1,0 +1,37 @@
+.navbar {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 50px;
+  left: 35px;
+  padding: 20px;
+  border: 1px solid #e3e3e3;
+  border-radius: 20px;
+  background-color: #e3e3e3;
+  font-size: 45px;
+  z-index: 5;
+}
+
+.navbar__home {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+.navbar__prevBtn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  font-size: 45px;
+  cursor: pointer;
+}
+
+.navbar__span {
+  font-size: 15px;
+  margin-top: 5px;
+}
